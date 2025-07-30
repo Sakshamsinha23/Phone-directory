@@ -7,7 +7,7 @@ A **multi-interface** Phone Directory application built using **Python**, **MySQ
 
 ## 🌐 Live Demo
 
-✅ **Streamlit App:** [Phone Directory (Live)](https://phone-directory.streamlit.app/)  
+✅ **Streamlit App:** [Phone Directory (Live)](https://phone-directory-sam.streamlit.app/)  
 📂 **GitHub Repository:** [GitHub - Sakshamsinha23/phone-directory](https://github.com/Sakshamsinha23/phone-directory)
 
 ---
