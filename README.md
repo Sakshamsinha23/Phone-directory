@@ -139,6 +139,38 @@ Organizing files clearly between CLI, GUI, Flask, and Streamlit versions to ensu
 </details>
 
 ---
+⚠️ Difficulties Faced
+During the development and deployment of the Phone Directory Management System, I encountered several challenges:
+
+🔌 Database Connectivity (MySQL)
+
+Setting up MySQL to work with multiple interfaces (CLI, GUI, Flask, Streamlit) was tricky.
+
+Faced connection errors like Can't connect to MySQL server on 'localhost:3306' during deployment due to remote DB access settings.
+
+🔁 ID Reset Issue After Deletion
+
+Initially tried to reset the id field after contact deletions, but realized it's better to preserve AUTO_INCREMENT for database consistency.
+
+🛡️ Validation and Edge Cases
+
+Ensuring the phone number was always 10 digits and properly validated across all interfaces.
+
+Handling empty form submissions and incorrect input formats required custom validation logic.
+
+☁️ Streamlit Cloud Deployment
+
+Encountered mysql.connector.errors.DatabaseError due to incorrect secrets or database configuration.
+
+Required manual .streamlit/secrets.toml setup and port management for successful connection.
+
+🔍 Live Search and Table Refresh
+
+Adding a dynamic search bar in Streamlit and making sure the table updates immediately after actions like Add/Delete required use of st.experimental_rerun() which sometimes led to session glitches.
+
+📦 Project Packaging for GitHub
+
+Organizing files clearly between CLI, GUI, Flask, and Streamlit versions to ensure the README and repo structure remained intuitive for other developers.
 
 ## 🔮 Future Enhancements
 
