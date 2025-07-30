@@ -1,28 +1,29 @@
-# Phone-directory
-📞 A complete Phone Directory web application built using Python, MySQL, and Flask. It allows users to add, view, update, and delete contacts with validation and timestamp tracking. Ideal for learning CRUD operations, full-stack development, and deployment on platforms on Heroku
 
 # 📞 Phone Directory Management System
 
-A versatile, multi-interface Phone Directory application built with Python, MySQL, Tkinter, and Flask. This system allows users to **add**, **view**, **update**, **delete**, **search**, and **export** contacts. Designed with usability in mind, the project supports three powerful interfaces:
+A **multi-interface** Phone Directory application built using **Python**, **MySQL**, **Tkinter**, **Flask**, and now also available as a **Streamlit Web App**. This system enables users to **add**, **view**, **update**, **delete**, **search**, and even **export** contacts (CLI/GUI). It is ideal for learning full-stack CRUD operations and modern UI integrations.
 
-- 🖥️ **CLI Version** (Console-based interaction)
-- 🪟 **GUI Version** (Tkinter desktop app)
-- 🌐 **Web Version** (Flask + Bootstrap)
+---
+
+## 🌐 Live Demo
+
+✅ **Streamlit App:** [Phone Directory (Live)](https://phone-directory.streamlit.app/)  
+📂 **GitHub Repository:** [GitHub - Sakshamsinha23/phone-directory](https://github.com/Sakshamsinha23/phone-directory)
 
 ---
 
 ## 🔧 Features
 
-| Feature              | CLI | GUI | Web |
-|----------------------|-----|-----|-----|
-| Add Contact          | ✅  | ✅  | ✅  |
-| View All Contacts    | ✅  | ✅  | ✅  |
-| Search Contact       | ✅  | ✅  | ✅  |
-| Update Contact       | ✅  | ✅  | ✅  |
-| Delete Contact       | ✅  | ✅  | ✅  |
-| Export to CSV        | ✅  | ✅  | 🚫  |
-| Form Validation      | ✅  | ✅  | ✅  |
-| Responsive UI        | 🚫  | ✅  | ✅  |
+| Feature              | CLI | GUI | Web (Flask) | Web (Streamlit) |
+|----------------------|-----|-----|-------------|------------------|
+| Add Contact          | ✅  | ✅  | ✅          | ✅               |
+| View All Contacts    | ✅  | ✅  | ✅          | ✅               |
+| Search Contact       | ✅  | ✅  | ✅          | ✅               |
+| Update Contact       | ✅  | ✅  | ✅          | ✅               |
+| Delete Contact       | ✅  | ✅  | ✅          | ✅               |
+| Export to CSV        | ✅  | ✅  | ❌          | Coming Soon      |
+| Form Validation      | ✅  | ✅  | ✅          | ✅               |
+| Responsive UI        | 🚫  | ✅  | ✅          | ✅               |
 
 ---
 
@@ -33,11 +34,11 @@ A versatile, multi-interface Phone Directory application built with Python, MySQ
 │
 ├── phone_directory.py         # 📟 CLI App
 ├── phone_directory_gui.py     # 🪟 Tkinter GUI App
-├── app.py                     # 🌐 Flask Web App (Backend + Routes)
-├── templates/
-│   ├── add.html               # ➕ Web Add Contact Page
-│   └── update.html            # ✏️ Web Update Contact Page
-├── static/                    # (Optional for CSS/JS if extended)
+├── app.py                     # 🌐 Flask Web App
+├── streamlit_app.py           # 📊 Streamlit Web App
+├── .streamlit/secrets.toml    # 🔐 DB credentials for deployment
+├── templates/                 # HTML Templates (Flask)
+├── static/                    # CSS/JS (Flask)
 └── README.md
 ```
 
@@ -45,10 +46,11 @@ A versatile, multi-interface Phone Directory application built with Python, MySQ
 
 ## 🛠️ Setup Instructions
 
-### 📋 Requirements
+### ✅ Requirements
+
 - Python 3.x
 - MySQL Server
-- Python Packages: `mysql-connector-python`, `Flask`, `tkinter` (standard)
+- Packages: `mysql-connector-python`, `flask`, `tkinter`, `streamlit`, `pandas`
 
 ### 🧩 MySQL Setup
 
@@ -60,21 +62,21 @@ USE phonebook;
 CREATE TABLE contacts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    phone VARCHAR(15) NOT NULL UNIQUE,
+    phone VARCHAR(15) NOT NULL,
     email VARCHAR(100),
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
-### 💡 Install Dependencies
+### 📦 Install Python Dependencies
 
 ```bash
-pip install mysql-connector-python flask
+pip install mysql-connector-python flask streamlit pandas
 ```
 
 ---
 
-## 🚀 How to Run
+## 🚀 Run Locally
 
 ### 🔹 CLI Version
 
@@ -88,61 +90,61 @@ python phone_directory.py
 python phone_directory_gui.py
 ```
 
-### 🔹 Web Version (Flask)
+### 🔹 Flask Web Version
 
 ```bash
 python app.py
 ```
 
-Then open your browser and go to:  
-`http://127.0.0.1:5000`
+Go to `http://127.0.0.1:5000`
+
+### 🔹 Streamlit Version
+
+```bash
+streamlit run streamlit_app.py
+```
 
 ---
 
 ## 📸 Screenshots
 
 <details>
-<summary>🔽 Web App</summary>
+<summary>🔽 Web (Streamlit)</summary>
 
-- **Add Contact Page**
+- **Live Directory Interface**
 
-![Add Contact](https://via.placeholder.com/600x300?text=Add+Contact+Page)
-
-- **Update Contact Page**
-
-![Update Contact](https://via.placeholder.com/600x300?text=Update+Contact+Page)
+![Streamlit Table View](https://github.com/user-attachments/assets/cfdfe2d7-2dd1-4140-a1cb-caf3fe8677c6)
 
 </details>
 
 <details>
 <summary>🔽 GUI App</summary>
 
-- **Tkinter Interface**
+- **Tkinter Desktop Interface**
 
-![GUI App](https://via.placeholder.com/600x300?text=Tkinter+Interface)
+![GUI Interface](https://github.com/user-attachments/assets/026322cc-2bc7-4833-bcdc-6842817a73d1)
 
 </details>
 
 ---
 
-## 💡 Future Improvements
+## 🔮 Future Enhancements
 
-- 🔐 User authentication (login/logout)
-- 📱 Mobile responsive web design
-- ☁️ Cloud deployment (e.g. Vercel, Heroku)
-- 🔔 Toast notifications and real-time alerts
-- 📊 Analytics on contact usage
+- 🔐 Admin authentication system
+- 📱 Mobile responsive view
+- 📤 Export to CSV in Streamlit version
+- 📊 Analytics dashboard with usage stats
 
 ---
 
 ## 🙋‍♂️ Author
 
 **Saksham Sinha**  
-📧 sakshamsinha9760@gmail.com 
-🔗 [GitHub](https://github.com/Sakshamsinha23)
+📧 sakshamsinha9760@gmail.com  
+🔗 [GitHub Profile](https://github.com/Sakshamsinha23)
 
 ---
 
 ## 📝 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is released under the [MIT License](LICENSE).
