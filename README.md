@@ -107,6 +107,10 @@ streamlit run streamlit_app.py
 ---
 
 ## 📸 Screenshots
+<img width="1920" height="1080" alt="Screenshot (101)" src="https://github.com/user-attachments/assets/753b79a3-177d-4dd6-8c9b-2e8861ace888" />
+<img width="1920" height="1080" alt="Screenshot (100)" src="https://github.com/user-attachments/assets/c667ca40-94cb-40e3-9e0c-11ceb2f6c7c8" />
+<img width="1837" height="172" alt="Screenshot 2025-07-30 220134" src="https://github.com/user-attachments/assets/b38257a1-796c-4490-8749-18677b8c4361" />
+<img width="1148" height="556" alt="Screenshot 2025-07-30 215255" src="https://github.com/user-attachments/assets/73a498a8-cd62-4b10-b4d2-02176fcdcec1" />
 
 <details>
 <summary>🔽 Web (Streamlit)</summary>
