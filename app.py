@@ -26,7 +26,7 @@ cursor.execute("""
 """)
 db.commit()
 
-# ✅ Title & Search Row
+# ✅ Title & Search
 col1, col2 = st.columns([4, 2])
 with col1:
     st.title("📞 Phone Directory")
@@ -48,19 +48,21 @@ with st.form("add_contact"):
             cursor.execute("INSERT INTO contacts (name, phone, email) VALUES (%s, %s, %s)", (name, phone, email))
             db.commit()
             st.success("✅ Contact added!")
-            st.experimental_rerun()
+            st.rerun()
 
-# ✅ Show All Contacts (after search filter)
+# ✅ Show All Contacts with optional search
 st.subheader("📋 All Contacts")
 cursor.execute("SELECT * FROM contacts ORDER BY id DESC")
 rows = cursor.fetchall()
 df = pd.DataFrame(rows, columns=["ID", "Name", "Phone", "Email"])
 
+# Filter search
 if search_term:
     df = df[df.apply(lambda row: search_term.lower() in str(row["Name"]).lower()
                                  or search_term in str(row["Phone"])
                                  or search_term.lower() in str(row["Email"]).lower(), axis=1)]
 
+# Display
 if not df.empty:
     st.dataframe(df, use_container_width=True)
 else:
@@ -74,7 +76,7 @@ if st.button("Delete"):
         cursor.execute("DELETE FROM contacts WHERE id = %s", (delete_id,))
         db.commit()
         st.success("✅ Contact deleted!")
-        st.experimental_rerun()
+        st.rerun()
     else:
         st.error("Please enter a valid numeric ID.")
 
@@ -99,6 +101,6 @@ if update_id and update_id.isdigit():
                                    (new_name, new_phone, new_email, update_id))
                     db.commit()
                     st.success("✅ Contact updated!")
-                    st.experimental_rerun()
+                    st.rerun()
     else:
         st.warning("⚠️ No contact found with this ID.")
