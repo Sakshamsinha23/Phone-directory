@@ -138,7 +138,7 @@ Then open your browser and go to:
 ## 🙋‍♂️ Author
 
 **Saksham Sinha**  
-📧 [Your Email]  
+📧 sakshamsinha9760@gmail.com 
 🔗 [GitHub](https://github.com/Sakshamsinha23)
 
 ---
