@@ -1,6 +1,37 @@
 import streamlit as st
 import mysql.connector
 import pandas as pd
+import streamlit as st
+
+# Theme toggle
+if "dark_mode" not in st.session_state:
+    st.session_state.dark_mode = False
+
+st.sidebar.toggle = st.sidebar.checkbox("🌗 Dark Mode", value=st.session_state.dark_mode)
+
+# Save toggle state
+st.session_state.dark_mode = st.sidebar.toggle
+# Apply dark mode CSS
+if st.session_state.dark_mode:
+    st.markdown(
+        """
+        <style>
+        body {
+            background-color: #0e1117;
+            color: white;
+        }
+        .stButton>button, .stTextInput>div>div>input {
+            background-color: #1c1f26;
+            color: white;
+            border: 1px solid #555;
+        }
+        .stDataFrame {
+            background-color: #1c1f26;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 # ✅ Database connection
 db = mysql.connector.connect(
